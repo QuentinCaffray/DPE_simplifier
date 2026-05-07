@@ -208,7 +208,7 @@ async function summarizeChunks(text) {
     summaries.push(...results);
   }
 
-  return summaries.join('\n\n---\n\n');
+  return summaries.join('\n\n');
 }
 
 // Post-traitement : on parse la sortie Mistral pour injecter les marqueurs de graphiques.
