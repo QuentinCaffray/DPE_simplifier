@@ -46,12 +46,14 @@ function inlineMarkdown(text, noBadges = false) {
   s = s.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
   s = s.replace(/\*(.+?)\*/g, '<em>$1</em>');
 
-  // Badges de priorité (sauf si noBadges est true, pour les titres)
+  // Liens markdown [texte](url)
+  s = s.replace(/\[([^\]]+)\]\((https?:\/\/[^)]+)\)/g, '<a href="$2" style="color:#5590ee;text-decoration:underline;">$1</a>');
+
+  // Badges de priorité sans emojis (Puppeteer/Chrome sur Linux n'a pas de police emoji)
   if (!noBadges) {
-    // On utilise (?<![a-zà-ÿ]) et (?![a-zà-ÿ]) au lieu de \b pour gérer les accents
-    s = s.replace(/(?<![a-zà-ÿ])(urgents?)(?![a-zà-ÿ])/gi, '<span class="badge badge-urgent">🔴 URGENT</span>');
-    s = s.replace(/(?<![a-zà-ÿ])(recommandé|recommande|recommandés|recommandées)(?![a-zà-ÿ])/gi, '<span class="badge badge-recommended">⚠️ RECOMMANDÉ</span>');
-    s = s.replace(/(?<![a-zà-ÿ])(optionnels?|optionnelles?)(?![a-zà-ÿ])/gi, '<span class="badge badge-optional">ℹ️ OPTIONNEL</span>');
+    s = s.replace(/(?<![a-zà-ÿ])(urgents?)(?![a-zà-ÿ])/gi, '<span class="badge badge-urgent">URGENT</span>');
+    s = s.replace(/(?<![a-zà-ÿ])(recommandé|recommande|recommandés|recommandées)(?![a-zà-ÿ])/gi, '<span class="badge badge-recommended">RECOMMANDÉ</span>');
+    s = s.replace(/(?<![a-zà-ÿ])(optionnels?|optionnelles?)(?![a-zà-ÿ])/gi, '<span class="badge badge-optional">OPTIONNEL</span>');
   }
 
   return s;
