@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(node:*)",
+      "Bash(npm uninstall:*)",
+      "Bash(npm install:*)",
+      "Bash(dir:*)",
+      "Bash(git -C \"d:\\\\Dev\\\\DPE-Clem\" status)",
+      "Bash(xcopy:*)",
+      "Bash(powershell -Command:*)",
+      "Bash(powershell.exe -Command:*)"
+    ]
+  }
+}

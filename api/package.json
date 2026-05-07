@@ -1,0 +1,21 @@
+{
+  "name": "dpe-api",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "node --watch src/index.js",
+    "postinstall": "npx puppeteer browsers install chrome"
+  },
+  "engines": {
+    "node": "20.x"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.0",
+    "multer": "^2.0.2",
+    "pdf-parse": "^1.1.0",
+    "pdfjs-dist": "^3.11.174",
+    "puppeteer": "^24.36.1"
+  }
+}
